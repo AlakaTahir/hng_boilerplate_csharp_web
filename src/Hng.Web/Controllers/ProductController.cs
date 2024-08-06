@@ -141,17 +141,17 @@ namespace Hng.Web.Controllers
             return Ok(products);
         }
 
-		/// <summary>
-		/// Get all product endpoint with no search
-		/// </summary>
-		/// <returns></returns>
-		[HttpGet("get-user-product")]
-		[Authorize]
-		[ProducesResponseType(StatusCodes.Status200OK)]
-		public async Task<ActionResult> GetUserProduct([FromQuery] GetUserProductsQueryParameters parameters)
-		{
-			var products = await _mediator.Send(new GetUserProductsQuery(parameters));
-			return Ok(new PaginatedResponseDto<PagedListDto<ProductDto>> { Data = products, Metadata = products.MetaData });
-		}
-	}
+        /// <summary>
+        /// Get all product endpoint with no search
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("get-user-product")]
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult> GetUserProduct([FromQuery] GetUserProductsQueryParameters parameters)
+        {
+            var products = await _mediator.Send(new GetUserProductsQuery(parameters));
+            return Ok(new PaginatedResponseDto<PagedListDto<ProductDto>> { Data = products, Metadata = products.MetaData });
+        }
+    }
 }

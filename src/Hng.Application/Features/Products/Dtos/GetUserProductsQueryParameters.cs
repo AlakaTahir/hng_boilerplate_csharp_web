@@ -2,8 +2,8 @@
 
 namespace Hng.Application.Features.Products.Dtos
 {
-    public class GetUserProductsQueryParameters: GetProductsQueryParameters
-	{
+    public class GetUserProductsQueryParameters : GetProductsQueryParameters
+    {
         [JsonPropertyName("user_id")]
         public Guid UserId { get; set; }
     }

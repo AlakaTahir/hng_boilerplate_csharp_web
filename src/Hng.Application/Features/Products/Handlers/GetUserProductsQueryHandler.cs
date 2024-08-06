@@ -22,9 +22,9 @@ namespace Hng.Application.Features.Products.Handlers
         public async Task<PagedListDto<ProductDto>> Handle(GetUserProductsQuery request, CancellationToken cancellationToken)
         {
             var products = await _productRepository.GetBySpec(
-			o => o.UserId == request.productsQueryParameters.UserId);
+            o => o.UserId == request.productsQueryParameters.UserId);
 
-			var mappedProducts = _mapper.Map<IEnumerable<ProductDto>>(products);
+            var mappedProducts = _mapper.Map<IEnumerable<ProductDto>>(products);
             var productsResult = PagedListDto<ProductDto>.ToPagedList(mappedProducts, request.productsQueryParameters.PageNumber, request.productsQueryParameters.PageSize);
 
             return productsResult;
